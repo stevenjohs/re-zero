@@ -1,0 +1,512 @@
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* reboot */
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     outline: none !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Poppins;
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    display: inline-block;
+}
+
+button, input {
+    font-family: Poppins;
+}
+
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5rem;
+    position: relative;
+}
+
+/* utilities */
+.btn {
+    padding: 10px 30px;
+    background-color: #796BAE;
+    border: 1px solid #796BAE;
+    border-radius: 5px;
+    color: #fff !important;
+    transition: .4s ease-in-out !important; 
+    display: inline-block;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #796BAE !important;
+}
+
+.title {
+    font-size: 2rem;
+}
+
+/* main */
+.load-screen {
+    position: fixed;
+    top: 0;
+    left :0;
+    right: 0;
+    bottom: 0;
+    background-color: #796BAE;
+    display: flex;
+    align-items: center;
+    z-index: -9;
+    transition: .5s ease-in-out, z-index 1.75s;
+    opacity: 0;
+}
+
+.load-screen .content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+}
+
+.load-screen .content span {
+    font-size: 1.25rem;
+    color: #fff;
+    margin-top: .5rem;
+}
+
+.load-screen img {
+    width: 60px;
+}
+
+.load-screen.active {
+    opacity: 1;
+    z-index: 99;
+}
+
+.scroll-to-top {
+    width: 2.75rem;
+    height: 2.75rem;
+    text-align: center;
+    line-height: 2.75rem;
+    border-radius: 5px;
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    color: #fff;
+    opacity: 0;
+    background-color: rgba(90, 90, 105, 0.6);
+    transition: .5s ease-in-out, z-index 1.75s;
+    z-index: -9;
+}
+
+.scroll-to-top.sticky {
+    opacity: 1;
+    z-index: 1;
+}
+
+.scroll-to-top:hover {
+    background-color: #5a5c69;  
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 87.5px;
+    padding: 0 5%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: .6s ease-in-out;
+    z-index: 9;
+}
+
+.navbar.sticky {
+    background-color: #fff;
+    box-shadow: 0 5px 5px rgba(121, 107, 174, 0.1);
+    height: 80px;
+}
+
+.navbar-brand img {
+    width: 120px;
+    margin-bottom: -10px;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.nav-item {
+    margin-left: 45px
+}
+
+.nav-link {
+    color: #000;
+    font-size: .95rem;
+    transition: .2s ease-in;
+}
+
+.nav-link:hover {
+    color: rgba(0, 0, 0, .5)
+}
+
+.nav-link.active {
+    color: #796BAE;
+    font-weight: 500;
+}
+
+.toggle-bar {
+    display: none;
+    color: #796BAE;
+    cursor: pointer;
+} 
+
+.hero {
+    margin: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.hero .desc .title {
+    font-size: 2.75rem;
+}
+
+.hero .desc .text {
+    margin: 1rem 0;
+    line-height: 1.5rem;
+    width: 325px;
+}
+
+.hero img {
+    width: 325px
+}
+
+.hero .smi {
+    bottom: 5%;
+    position: absolute;
+}
+
+.hero .smi a {
+    color: #7869ab;
+    margin: 0 5px;
+    font-size: 1.1rem;
+}
+
+.about {
+    flex-direction: row;
+    justify-content: center;
+}
+
+.about .desc {
+    margin-left: 5rem;
+    width: 50%
+}
+
+.about .desc .text {
+    margin: 1rem 0
+}
+
+.novels {
+    min-height: 100%;
+}
+
+.novels .images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem 10%;
+}
+
+.novels .images img {
+    width: 240px;
+}
+
+.novels .btn {
+    border-radius: 2rem;
+}
+
+.characters .character {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.characters .character img {
+    width: 250px
+}
+
+.characters .character img:nth-child(even) {
+    display: flex;
+    order: 2
+}
+
+.characters .character .desc {
+    width: 50%;
+    margin: 0 3rem
+}
+
+.characters .character .desc hr {
+    margin-top: 1rem;
+    width: 30%;
+    height: 3px;
+    border: none;
+    background-color: #796BAE;
+}
+
+.contact {
+    margin-bottom: 0;
+}
+
+.contact .contact-content {
+    width: 700px;
+    padding: 4rem 1.5rem;
+    background-color: #796BAE;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto
+}
+
+.contact .contact-content h1 {
+    color: #fff;
+    font-weight: 500;
+}
+
+.contact .contact-content p {
+    color: rgba(255, 255, 255, .75);
+    font-weight: 400;
+    font-size: .9rem;
+}
+
+.contact .contact-content .contact-form {
+    background-color: #fff;
+    padding: .5rem 1rem;
+    border-radius: 5px;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.contact .contact-content .contact-form input {
+    border: none;
+    width: 60%;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 2rem 0;
+    color: #fff;
+    background-color: #796BAE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 465px) {
+    /* utilities */
+    .title {
+        font-size: 1.5rem;
+    }
+
+    /* main */
+    .header {
+        min-height: 140vh;
+    }
+
+    .navbar {
+        height: 75px;
+    }
+
+    .navbar.sticky {
+        height: 65px;
+    }
+
+    .navbar-brand img {
+        width: 90px
+    }
+
+    .hero .desc .text {
+        width: 80%;
+        margin: 1rem auto;
+    } 
+
+    .characters {
+        margin-bottom: 0;
+    }
+
+    .contact {
+        min-height: 140vh;
+    }
+
+    .contact .contact-content {
+        width: 92.5% !important;
+        padding: 3.25rem 1rem
+    }
+
+    .contact .contact-content .text {
+        font-size: .75rem !important;
+    }
+
+    .contact .contact-content .contact-form {
+        width: 100% !important;
+        padding: .5rem 0;
+    }
+
+    footer {
+        padding: 1.5rem
+    }
+}
+
+@media screen and (max-width: 680px) {
+    /* utilities */
+    .title {
+        font-size: 1.5rem !important;
+    }
+
+    /* main */
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero img {
+        width: 150px !important;
+    }
+
+    .hero .desc {
+        margin-top: 1rem;
+        order: 2;
+    }
+
+    .hero .desc .title {
+        font-size: 1.75rem !important;
+    }
+
+    .about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about .desc {
+        margin-left: 0;
+        margin-top: 1rem;
+        order: 2;
+        width: 75%;
+    }
+
+    .characters .character {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .characters .character img {
+        order: 1 !important
+    }
+
+    .characters .character .desc {
+        margin: 1.5rem 0;
+        width: 75%;
+        order: 2 !important; 
+    }
+
+    .characters .character .desc hr {
+        margin: 1rem auto
+    }
+
+    .contact .contact-content {
+        width: 75%;
+        text-align: center;
+    }
+
+    .contact .contact-content form {
+        flex-direction: column;
+        width: 87.5% !important;
+        background-color: transparent !important;
+    }
+    
+    .contact .contact-content input {
+        width: 100% !important;
+        padding: 15px 0;
+        padding-left: .75rem;
+        border-radius: 5px;
+        margin-bottom: .75rem;
+    }
+
+    .contact .contact-content .btn {
+        width: 100%;
+        margin: 0;
+        border: 1px solid #fff !important
+    }
+}
+
+@media screen and (max-width: 992px) {
+    /* reboot */
+    p {
+        font-size: .9rem;
+    }
+
+    /* utilities */
+    .title {
+        font-size: 1.75rem;
+        
+    }
+
+    /* main */
+    .navbar-nav {
+        display: none;
+    }
+
+    .toggle-bar {
+        display: block;
+    }
+
+    .hero .desc .title {
+        font-size: 2.25rem;
+    }
+
+    .hero img {
+        width: 235px;
+    }
+
+    .about img {
+        width: 175px
+    }
+
+    .novels .images img {
+        width: 200px
+    }
+
+    .characters .character img {
+        width: 150px
+    }
+
+    .contact .contact-content {
+        width: 560px
+    }
+}
