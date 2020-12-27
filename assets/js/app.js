@@ -14,6 +14,16 @@ function load() {
     setTimeout(() => {
         loadScreen.classList.remove('active');
     }, 1000);
+    if (localStorage.getItem('darkmode') === null) {
+        localStorage.setItem('darkmode', '');
+    } else {
+        if (localStorage.getItem('darkmode') == '') {
+            document.body.classList.remove('darkmode');
+        } else {
+            document.body.classList.toggle('darkmode');
+        }
+    }
+    document.querySelector('.darkmode-input').classList.toggle('checked', document.body.classList.contains('darkmode'));
 }
 
 function autoFillText() {
@@ -32,7 +42,6 @@ function autoFillText() {
     }, 1250);
 }
 
-// Window Event onScroll
 function onScroll() {
     const navbar = document.querySelector('.navbar');
     const scrollToTop = document.querySelector('.scroll-to-top');
@@ -41,8 +50,19 @@ function onScroll() {
 
 }
 
+function darkmodeToggle() {
+    document.body.classList.toggle('darkmode');
+    document.querySelector('.darkmode-input').classList.toggle('checked');
+    if (document.body.classList.contains('darkmode')) {
+        localStorage.setItem('darkmode', 'darkmode')
+    } else {
+        localStorage.setItem('darkmode', '')
+    }
+}
+
 // All event function
 function doEventBindings() {
     window.addEventListener('load', autoFillText);
     window.addEventListener('scroll', onScroll);
+    document.querySelector('.darkmode-input').addEventListener('click', darkmodeToggle);
 }
