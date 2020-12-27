@@ -81,7 +81,9 @@ function navActive(e) {
         document.querySelector('.toggle-bar').innerHTML = '<i class="fas fa-fw fa-bars"></i>';
     }
     e.target.classList.toggle('active');
-    document.querySelector('.overlay').classList.toggle('active');
+    if (window.innerWidth <= 992) {
+        document.querySelector('.overlay').classList.toggle('active');
+    }
 }
 
 function toggleBar() {

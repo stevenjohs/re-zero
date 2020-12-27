@@ -344,7 +344,8 @@ section {
 }
 
 .hero img {
-    width: 400px
+    width: 400px;
+    position: relative;
 }
 
 .hero .smi {
@@ -393,6 +394,10 @@ section {
 
 .novels .images img {
     width: 240px;
+    height: 300px;
+    object-fit: cover;
+    margin: 10px;
+    border: 1px solid #796BAE;
 }
 
 .characters .character {
