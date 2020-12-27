@@ -41,7 +41,7 @@ body.darkmode .btn.btn-primary {
     color: #fff;
 }
 
-body.darkmode .btn.btn-primary:hover {
+body.darkmode .btn.btn-primary:hover, body.darkmode .btn.btn-primary:focus {
     background-color: #092c3e;
     border: 1px solid #fff;
     color: #fff !important
@@ -113,7 +113,7 @@ section {
     color: #fff !important;
 }
 
-.btn.btn.btn-primary:hover {
+.btn.btn-primary:hover, .btn.btn-primary:focus {
     background-color: #fff;
     color: #796BAE !important;
 }
@@ -124,7 +124,7 @@ section {
     color: #fff;
 }
 
-.btn.btn-darkmode:hover {
+.btn.btn-darkmode:hover, .btn.btn-darkmode:focus {
     background-color: #fff;
     border: 1px solid #796BAE;
     color: #796BAE;
@@ -203,7 +203,7 @@ section {
     z-index: 1;
 }
 
-.scroll-to-top:hover {
+.scroll-to-top:hover, .scroll-to-top:focus {
     background-color: #5a5c69;  
 }
 
@@ -250,7 +250,7 @@ section {
     width: 100%;
 }
 
-.nav-link:hover {
+.nav-link:hover, .nav-link:focus {
     color: rgba(0, 0, 0, .5)
 }
 
@@ -346,6 +346,7 @@ section {
 .hero img {
     width: 400px;
     position: relative;
+    border-radius: 25px 0 25px 0;
 }
 
 .hero .smi {
@@ -429,6 +430,39 @@ section {
     background-color: #796BAE;
 }
 
+.characters .next {
+    display: flex;
+    align-items: center;
+    align-self: flex-end;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 2.5rem;
+    cursor: pointer;
+    padding: 7.5px 15px;
+    justify-content: space-between;
+    transition: .5s ease-in-out;
+    border-radius: 2rem;
+}
+
+.characters .next:hover {
+    background-color: #796BAE;
+}
+
+.characters .next:hover p, .characters .next:hover i {
+    color: #fff !important
+}
+
+.characters .next p {
+    font-size: 1.1rem;
+    color: #796BAE;
+    margin-right: 10px;
+}
+
+.characters .next i {
+    font-size: 1.2rem;
+    color: #796BAE;
+}
+
 .contact {
     margin-bottom: 0;
 }
@@ -475,7 +509,7 @@ footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 82.5px;
+    height: 77.5px;
     padding: 0;
     color: #fff;
     background-color: #796BAE;
@@ -650,7 +684,6 @@ footer {
     }
 
     .navbar-nav {
-        opacity: 0;
         position: absolute;
         top: 65px;  
         left: 0;
@@ -658,11 +691,11 @@ footer {
         flex-direction: column;
         background-color: #fff;
         align-items: flex-start;
-        transition: 0.5s ease-in-out;
+        display: none;
     }
     
     .navbar-nav.active {
-        opacity: 1;
+        display: flex;
     }
 
     .nav-item {
@@ -674,7 +707,7 @@ footer {
         transition: .2s;
     }
 
-    .nav-item:hover {
+    .nav-item:hover, .nav-item:focus {
         background-color: #796bae4a;
     }
 

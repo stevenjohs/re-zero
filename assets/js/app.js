@@ -52,7 +52,6 @@ function onScroll() {
     const scrollToTop = document.querySelector('.scroll-to-top');
     navbar.classList.toggle('sticky', window.scrollY > 0);
     scrollToTop.classList.toggle('sticky', window.scrollY > 100);
-
 }
 
 function darkmodeToggle() {
