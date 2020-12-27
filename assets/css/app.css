@@ -22,7 +22,7 @@ html {
 body {
     font-family: Poppins;
     position: relative;
-    transition: .5s ease-in-out;
+    transition: .45s ease-in-out;
 }
 
 /* darkmode */
@@ -52,6 +52,10 @@ body.darkmode .navbar.sticky {
     box-shadow: 0 5px 5px rgba(121, 107, 174, 0.2);
 }
 
+body.darkmode .navbar {
+    background-color: var(--darkModeColor);
+}
+
 body.darkmode .nav-link {
     color: var(--whiteColor);
 }
@@ -66,6 +70,10 @@ body.darkmode .toggle-bar {
 
 body.darkmode .hero .smi a {
     color: var(--whiteColor);
+}
+
+body.darkmode footer {
+    border-top: 2px solid var(--darkModeColor);
 }
 
 a {
@@ -93,9 +101,10 @@ section {
 .btn {
     padding: 10px 30px;
     border-radius: 5px;
-    transition: .4s ease-in-out !important; 
+    transition: .45s ease-in-out !important; 
     display: inline-block;
     cursor: pointer;
+    white-space: nowrap !important;
 }
 
 .btn.btn-primary {
@@ -153,7 +162,24 @@ section {
 
 .load-screen.active {
     opacity: 1;
-    z-index: 99;
+    z-index: 999;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: -9;
+    opacity: 0;
+    transition: .4s, z-index .01s;
+}
+
+.overlay.active {
+    opacity: 1;
+    z-index: 9;
 }
 
 .scroll-to-top {
@@ -187,12 +213,12 @@ section {
     width: 100%;
     height: 87.5px;
     padding: 0 5%;
-    background-color: transparent;
+    background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    transition: .6s ease-in-out;
-    z-index: 9;
+    transition: .45s ease-in-out;
+    z-index: 99;
 }
 
 .navbar.sticky {
@@ -220,6 +246,8 @@ section {
     color: #000;
     font-size: .95rem;
     transition: .2s ease-in;
+    display: inline-block;
+    width: 100%;
 }
 
 .nav-link:hover {
@@ -235,7 +263,12 @@ section {
     display: none;
     color: #796BAE;
     cursor: pointer;
+    transition: .2s;
 } 
+
+.toggle-bar .close {
+    transform: rotate(45deg);
+}
 
 .darkmode-input {
     -webkit-appearance: none;
@@ -403,7 +436,7 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: auto
+    margin: auto;
 }
 
 .contact .contact-content h1 {
@@ -444,6 +477,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    border-top: 2px solid #fff;
 }
 
 @media screen and (max-width: 310px) {
@@ -481,7 +515,6 @@ footer {
     }
 
     .contact .contact-content {
-        width: 92.5% !important;
         padding: 3.25rem 1rem;
     }
 
@@ -556,7 +589,7 @@ footer {
     }
 
     .contact .contact-content {
-        width: 75% !important;
+        width: 85% !important;
         text-align: center;
     }
 
@@ -582,6 +615,11 @@ footer {
 
 @media screen and (max-width: 992px) {
     /* reboot */
+    /* darkmode */
+    body.darkmode .navbar-nav {
+        background-color: var(--darkModeColor);
+    }
+
     p {
         font-size: .9rem;
     }
@@ -592,9 +630,9 @@ footer {
     }
 
     /* main */
-     .navbar {
+    .navbar {
         height: 75px;
-        padding: 0 10%;
+        padding: 0 8.5%;
         justify-content: space-between;
     }
 
@@ -605,9 +643,39 @@ footer {
     .navbar-brand {
         display: none;
     }
-    
+
     .navbar-nav {
-        display: none;
+        opacity: 0;
+        position: absolute;
+        top: 65px;  
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: #fff;
+        align-items: flex-start;
+        transition: 0.5s ease-in-out;
+    }
+    
+    .navbar-nav.active {
+        opacity: 1;
+    }
+
+    .nav-item {
+        position: relative;
+        left: 0;
+        margin-left: 0 !important;
+        padding: 15px 8.5%;
+        width: 100%;
+        transition: .2s;
+    }
+
+    .nav-item:hover {
+        background-color: #796bae4a;
+    }
+
+    .nav-link.btn {
+        width: 100%;
+        text-align: center;
     }
 
     .toggle-bar {

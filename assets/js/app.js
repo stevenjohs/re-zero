@@ -67,9 +67,40 @@ function darkmodeToggle() {
     }
 }
 
+function navActive(e) {
+    document.querySelectorAll('.nav-link').forEach(item => {
+        item.classList.remove('active');
+    })
+    if (e.target.classList.contains('btn')) {
+        return;
+    }
+    document.querySelector('.navbar-nav').classList.toggle('active');
+    if (document.querySelector('.navbar-nav').classList.contains('active')) {
+        document.querySelector('.toggle-bar').innerHTML = '<i class="fas fa-fw fa-plus close"></i>';
+    } else {
+        document.querySelector('.toggle-bar').innerHTML = '<i class="fas fa-fw fa-bars"></i>';
+    }
+    e.target.classList.toggle('active');
+    document.querySelector('.overlay').classList.toggle('active');
+}
+
+function toggleBar() {
+    document.querySelector('.navbar-nav').classList.toggle('active');
+    if (document.querySelector('.navbar-nav').classList.contains('active')) {
+        document.querySelector('.toggle-bar').innerHTML = '<i class="fas fa-fw fa-plus close"></i>';
+    } else {
+        document.querySelector('.toggle-bar').innerHTML = '<i class="fas fa-fw fa-bars"></i>';
+    }
+    document.querySelector('.overlay').classList.toggle('active');
+}
+
 // All event function
 function doEventBindings() {
     window.addEventListener('load', autoFillText);
     window.addEventListener('scroll', onScroll);
     document.querySelector('.darkmode-input').addEventListener('click', darkmodeToggle);
+    document.querySelectorAll('.nav-link').forEach(item => {
+        item.addEventListener('click', navActive);
+    });
+    document.querySelector('.toggle-bar').addEventListener('click', toggleBar);
 }
