@@ -147,14 +147,8 @@ section {
     margin: auto;
 }
 
-.load-screen .content span {
-    font-size: 1.25rem;
-    color: #fff;
-    margin-top: .5rem;
-}
-
 .load-screen img {
-    width: 60px;
+    width: 200px;
 }
 
 .load-screen.active {
@@ -317,7 +311,7 @@ section {
 }
 
 .hero img {
-    width: 325px
+    width: 400px
 }
 
 .hero .smi {
@@ -334,6 +328,13 @@ section {
 .about {
     flex-direction: row;
     justify-content: center;
+}
+
+.about img {
+    width: 295px;
+    height: 240px;
+    border: 2px solid #796BAE;
+    object-fit: cover;
 }
 
 .about .desc {
@@ -445,6 +446,12 @@ footer {
     justify-content: center;
 }
 
+@media screen and (max-width: 310px) {
+    body {
+        display: none !important;
+    }
+}
+
 @media screen and (max-width: 465px) {
     /* utilities */
     .title {
@@ -454,20 +461,6 @@ footer {
     /* main */
     .header {
         min-height: 140vh;
-    }
-
-    .navbar {
-        height: 75px;
-        padding: 0 10%;
-        justify-content: space-between;
-    }
-
-    .navbar.sticky {
-        height: 65px;
-    }
-
-    .navbar-brand {
-        display: none;
     }
 
     .hero .desc .text {
@@ -489,7 +482,7 @@ footer {
 
     .contact .contact-content {
         width: 92.5% !important;
-        padding: 3.25rem 1rem
+        padding: 3.25rem 1rem;
     }
 
     .contact .contact-content .text {
@@ -519,7 +512,7 @@ footer {
     }
 
     .hero img {
-        width: 150px !important;
+        width: 225px !important;
     }
 
     .hero .desc {
@@ -563,7 +556,7 @@ footer {
     }
 
     .contact .contact-content {
-        width: 75%;
+        width: 75% !important;
         text-align: center;
     }
 
@@ -596,15 +589,29 @@ footer {
     /* utilities */
     .title {
         font-size: 1.75rem;
-        
     }
 
     /* main */
+     .navbar {
+        height: 75px;
+        padding: 0 10%;
+        justify-content: space-between;
+    }
+
+    .navbar.sticky {
+        height: 65px;
+    }
+
+    .navbar-brand {
+        display: none;
+    }
+    
     .navbar-nav {
         display: none;
     }
 
     .toggle-bar {
+        font-size: 1.2rem;
         display: block;
     }
 
@@ -613,11 +620,7 @@ footer {
     }
 
     .hero img {
-        width: 235px;
-    }
-
-    .about img {
-        width: 175px
+        width: 245px;
     }
 
     .novels .images img {

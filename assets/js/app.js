@@ -24,6 +24,11 @@ function load() {
         }
     }
     document.querySelector('.darkmode-input').classList.toggle('checked', document.body.classList.contains('darkmode'));
+    if (document.body.classList.contains('darkmode')) {
+        document.querySelector('.img-logo').src = 'assets/images/logo-white.png';
+    } else {
+        document.querySelector('.img-logo').src = 'assets/images/logo.png';
+    }
 }
 
 function autoFillText() {
@@ -54,9 +59,11 @@ function darkmodeToggle() {
     document.body.classList.toggle('darkmode');
     document.querySelector('.darkmode-input').classList.toggle('checked');
     if (document.body.classList.contains('darkmode')) {
-        localStorage.setItem('darkmode', 'darkmode')
+        localStorage.setItem('darkmode', 'darkmode');
+        document.querySelector('.img-logo').src = 'assets/images/logo-white.png';
     } else {
         localStorage.setItem('darkmode', '')
+        document.querySelector('.img-logo').src = 'assets/images/logo.png';
     }
 }
 
