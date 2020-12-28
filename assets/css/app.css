@@ -450,6 +450,9 @@ section {
     flex-direction: column;
     align-items: center;
     margin: auto;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
 }
 
 .contact .contact-content h1 {
@@ -600,7 +603,7 @@ footer {
     }
 
     .contact .contact-content {
-        width: 85% !important;
+        width: 90% !important;
         text-align: center;
     }
 
