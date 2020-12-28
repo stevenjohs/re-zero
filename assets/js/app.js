@@ -9,11 +9,6 @@ function initializeApp() {
 
 // Load Screen 
 function load() {
-    const loadScreen = document.querySelector('.load-screen');
-    loadScreen.classList.add('active');
-    setTimeout(() => {
-        loadScreen.classList.remove('active');
-    }, 1000);
     if (localStorage.getItem('darkmode') === null) {
         localStorage.setItem('darkmode', '');
     } else {
@@ -44,7 +39,7 @@ function autoFillText() {
                 clearInterval(interval)
             }
         }, frame);
-    }, 1250);
+    }, 500);
 }
 
 function onScroll() {
@@ -52,9 +47,6 @@ function onScroll() {
     const scrollToTop = document.querySelector('.scroll-to-top');
     navbar.classList.toggle('sticky', window.scrollY > 0);
     scrollToTop.classList.toggle('sticky', window.scrollY > 100);
-    if (window.innerWidth >= 992) {
-        document.querySelector('.overlay').classList.remove('active');
-    }
 }
 
 function darkmodeToggle() {
@@ -69,6 +61,14 @@ function darkmodeToggle() {
     }
 }
 
+function onResize() {
+    if (window.innerWidth >= 992) {
+        document.querySelector('.overlay').classList.remove('active');
+        document.querySelector('.navbar-nav').classList.remove('active');
+        document.querySelector('.toggle-bar').innerHTML = '<i class="fas fa-fw fa-bars"></i>';
+    }
+}
+
 function navActive(e) {
     document.querySelectorAll('.nav-link').forEach(item => {
         item.classList.remove('active');
@@ -76,15 +76,16 @@ function navActive(e) {
     if (e.target.classList.contains('btn')) {
         return;
     }
-    document.querySelector('.navbar-nav').classList.toggle('active');
-    if (document.querySelector('.navbar-nav').classList.contains('active')) {
-        document.querySelector('.toggle-bar').innerHTML = '<i class="fas fa-fw fa-plus close"></i>';
-    } else {
-        document.querySelector('.toggle-bar').innerHTML = '<i class="fas fa-fw fa-bars"></i>';
-    }
     e.target.classList.toggle('active');
     if (window.innerWidth <= 992) {
-        document.querySelector('.overlay').classList.toggle('active');
+        document.querySelector('.navbar-nav').classList.remove('active');
+        if (document.querySelector('.navbar-nav').classList.contains('active')) {
+            document.querySelector('.toggle-bar').innerHTML = '<i class="fas fa-fw fa-plus close"></i>';
+            document.querySelector('.overlay').classList.add('active');
+        } else {
+            document.querySelector('.toggle-bar').innerHTML = '<i class="fas fa-fw fa-bars"></i>';
+            document.querySelector('.overlay').classList.remove('active');
+        }
     }
 }
 
@@ -102,6 +103,7 @@ function toggleBar() {
 function doEventBindings() {
     window.addEventListener('load', autoFillText);
     window.addEventListener('scroll', onScroll);
+    window.addEventListener('resize', onResize);
     document.querySelector('.darkmode-input').addEventListener('click', darkmodeToggle);
     document.querySelectorAll('.nav-link').forEach(item => {
         item.addEventListener('click', navActive);
